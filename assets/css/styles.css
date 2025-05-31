@@ -1,15 +1,16 @@
 :root {
   --color-primary: #007bff;
   --color-secondary: #dc3545;
-  --color-whatsapp: #25D366;
+  --color-whatsapp: #1ba24d;
   --color-whatsapp-dark: #128C7E;
   --color-email: #EA4335;
+  --color-email-dark: #d33426;
   --color-maps: #4285F4;
   --color-maps-dark: #3367D6;
   --color-background: #f4f4f4;
   --color-card-bg: #ffffff;
-  --color-header-bg: #a7f1f1;
-  --color-footer-bg: #a7f1f1;
+  --color-header-bg: #ADD8E6;
+  --color-footer-bg: #ADD8E6;
   --color-footer-text: #333333;
   --color-text: #333333;
   --color-text-light: #ffffff;
@@ -97,7 +98,8 @@ body {
   border-radius: 30px;
   font-weight: bold;
   text-align: center;
-  margin-top: 20px;
+  margin: 15px auto 0;
+  width: fit-content;
 }
 
 .content-grid {
@@ -107,12 +109,19 @@ body {
   align-items: center;
 }
 
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .logo {
   max-width: 100%;
   height: auto;
   max-width: 380px;
   transition: transform 0.3s;
   outline: none;
+  display: block;
 }
 
 .logo:hover {
@@ -172,8 +181,8 @@ body {
 }
 
 .contact-column p {
-  margin-bottom: 12px;
-  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-size: 1.3rem; /* Tamaño aumentado */
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -181,9 +190,10 @@ body {
 }
 
 .contact-column strong {
-  min-width: 90px;
+  min-width: 100px; /* Ancho aumentado */
   display: inline-block;
   color: var(--color-footer-text);
+  font-size: 1.3rem; /* Tamaño aumentado */
 }
 
 .highlight-phone {
@@ -213,15 +223,15 @@ a:hover { text-decoration: underline; }
 .phone-link:hover { color: var(--color-primary); }
 
 .highlight-phone .phone-link {
-  font-size: 1.2rem;
+  font-size: 1.3rem; /* Tamaño aumentado */
   color: var(--color-footer-text);
   font-weight: bold;
 }
 
 .icon {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -234,12 +244,12 @@ a:hover { text-decoration: underline; }
 .map-link:hover .map-icon { animation: map-pulse 1.5s infinite; }
 .highlight-phone:hover .call-icon { transform: rotate(25deg); }
 
-.whatsapp-desktop-btn, .map-desktop-btn {
+.phone-desktop-btn, .email-desktop-btn, .whatsapp-desktop-btn, .map-desktop-btn {
   display: none;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  margin-left: 10px;
+  margin-left: 12px;
   vertical-align: middle;
   transition: all 0.3s;
   align-items: center;
@@ -248,18 +258,42 @@ a:hover { text-decoration: underline; }
   border: none;
 }
 
+.phone-desktop-btn { background-color: var(--color-primary); }
+.email-desktop-btn { background-color: var(--color-email); }
 .whatsapp-desktop-btn { background-color: var(--color-whatsapp); }
 .map-desktop-btn { background-color: var(--color-maps); }
 
-.whatsapp-icon-white, .map-icon-white {
+.phone-icon-white, .email-icon-white, .whatsapp-icon-white, .map-icon-white {
   display: inline-block;
   width: 24px;
   height: 24px;
   background-size: contain;
 }
 
+.phone-icon-white { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>'); }
+.email-icon-white { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>'); }
 .whatsapp-icon-white { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-6.29 3.617c-.545.198-1.04.347-1.99-.297-.99-.674-3.434-3.625-3.434-3.625s-.892-1.233-.892-2.324c0-1.09.57-1.636.57-1.636s.148-.174.223-.247c.074-.074.149-.124.223-.124.074 0 .099-.025.148 0 .05.025.074.05.124.074.446.223 1.213.793 1.338.867.124.075.248.124.347.025.099-.099.074-.174.05-.248-.025-.074-.272-.644-.37-.882-.099-.239-.198-.174-.347-.1-.149.075-.892.52-1.214.694-.322.174-.57.26-.67.434-.099.174-.074.372.025.57.297.545 1.04 1.836 1.114 1.96.074.124.025.223-.025.298-.05.074-.099.149-.198.223-.05.05-.1.1-.149.149-.074.074-.148.149-.05.297.099.149.52.694 1.114 1.141.694.52 1.263.694 1.411.767.149.074.248.05.347-.025.099-.074.446-.52.57-.694.124-.174.248-.149.421-.074.174.074 1.114.52 1.312.619.198.099.322.148.37.223.05.074.05.422-.124.867-.173.446-.744 1.09-1.016 1.164-.273.075-.421.038-.57-.074-.149-.111-.644-.446-1.239-.893z"/></svg>'); }
 .map-icon-white { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>'); }
+
+.phone-desktop-btn:hover {
+  background-color: #0069d9;
+  transform: scale(1.1);
+}
+
+.email-desktop-btn:hover {
+  background-color: var(--color-email-dark);
+  transform: scale(1.1);
+}
+
+.whatsapp-desktop-btn:hover {
+  background-color: var(--color-whatsapp-dark);
+  transform: scale(1.1) rotate(5deg);
+}
+
+.map-desktop-btn:hover {
+  background-color: var(--color-maps-dark);
+  transform: scale(1.1);
+}
 
 .whatsapp-float {
   position: fixed;
@@ -272,7 +306,7 @@ a:hover { text-decoration: underline; }
   border-radius: 50%;
   text-align: center;
   font-size: 30px;
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+  box-shadow: 0 6px 20px #1ba24d;
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -325,7 +359,7 @@ a:hover { text-decoration: underline; }
 }
 
 @keyframes pulse {
-  0% { transform: rotate(5deg) scale(1); box-shadow: 0 0 0 0 rgba(219, 59, 10, 0.7); }
+  0% { transform: rotate(5deg) scale(1); box-shadow: 0 0 0 0 #1ba24d; }
   50% { transform: rotate(5deg) scale(1.05); }
   70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
   100% { transform: rotate(5deg) scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
@@ -368,18 +402,8 @@ a:hover { text-decoration: underline; }
   top: -50px;
 }
 
-.whatsapp-desktop-btn:hover {
-  background-color: var(--color-whatsapp-dark);
-  transform: scale(1.1) rotate(5deg);
-}
-
-.map-desktop-btn:hover {
-  background-color: var(--color-maps-dark);
-  transform: scale(1.1);
-}
-
 @media (min-width: 769px) {
-  .whatsapp-desktop-btn, .map-desktop-btn { display: inline-flex; }
+  .phone-desktop-btn, .email-desktop-btn, .whatsapp-desktop-btn, .map-desktop-btn { display: inline-flex; }
   .whatsapp-float { display: none; }
 }
 
@@ -406,34 +430,102 @@ a:hover { text-decoration: underline; }
 
 @media (max-width: 768px) {
   body { padding: 15px; justify-content: flex-start; }
-  .content-grid { grid-template-columns: 1fr; gap: 20px; }
+  .content-grid { 
+    grid-template-columns: 1fr; 
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    max-width: 250px;
+    margin: 0 auto 15px;
+  }
+  
   .experience-badge { display: none; }
-  .experience-badge-mobile { display: block; }
-  .contact-info { grid-template-columns: 1fr; gap: 15px; text-align: center; }
-  .contact-column p { justify-content: center; }
+  .experience-badge-mobile { 
+    display: block;
+    margin: 15px auto 0;
+  }
+  
+  .contact-info { 
+    grid-template-columns: 1fr; 
+    gap: 15px; 
+    text-align: center; 
+  }
+  .contact-column p { 
+    font-size: 1.2rem;
+    justify-content: center; 
+  }
+  .contact-column strong {
+    font-size: 1.2rem;
+    min-width: 90px;
+  }
   .card-header h1 { font-size: 1.8rem; }
-  .logo { max-width: 280px; }
   .whatsapp-float { width: 65px; height: 65px; bottom: 20px; right: 20px; }
   .whatsapp-icon-white { width: 35px; height: 35px; }
   .whatsapp-text { font-size: 14px; padding: 6px 12px; }
+  .highlight-phone .phone-link {
+    font-size: 1.2rem;
+  }
 }
 
 @media (max-width: 480px) {
   .card-content { padding: 25px 15px; }
-  .services-list li { font-size: 1.1rem; margin-bottom: 12px; padding-left: 25px; }
+  .services-list li { 
+    font-size: 1.1rem; 
+    margin-bottom: 12px; 
+    padding-left: 25px; 
+    text-align: left;
+  }
   .services-list li::before { font-size: 2rem; top: -6px; }
   .card-footer { padding: 20px 10px; }
-  .contact-column p { font-size: 1rem; justify-content: flex-start; text-align: left; }
-  .contact-column strong { min-width: 80px; }
+  .contact-column p { 
+    font-size: 1.1rem; 
+    justify-content: center; 
+    text-align: center; 
+  }
+  .contact-column strong { 
+    min-width: 85px;
+    font-size: 1.1rem;
+  }
+  .logo {
+    max-width: 220px;
+  }
   .whatsapp-float { width: 60px; height: 60px; }
   .whatsapp-icon-white { width: 30px; height: 30px; }
   .highlight-phone, .highlight-address { padding: 10px 12px; }
+  .highlight-phone .phone-link {
+    font-size: 1.1rem;
+  }
 }
 
 @media (max-width: 360px) {
   .card-header h1 { font-size: 1.6rem; }
-  .experience-badge-mobile { font-size: 1rem; padding: 6px 20px; }
+  .experience-badge-mobile { 
+    font-size: 1rem; 
+    padding: 6px 20px; 
+  }
   .services-list li { font-size: 1rem; }
-  .contact-column p { font-size: 0.9rem; }
-  .highlight-phone .phone-link { font-size: 1.1rem; }
+  .contact-column p { font-size: 1rem; }
+  .contact-column strong {
+    font-size: 1rem;
+    min-width: 80px;
+  }
+  .highlight-phone .phone-link { 
+    font-size: 1rem;
+  }
+  .logo {
+    max-width: 200px;
+  }
+
+
+  
 }

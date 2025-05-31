@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Configurar teléfono
-    const phoneLinks = document.querySelectorAll('.phone-link');
+    const phoneLinks = document.querySelectorAll('.phone-link, .phone-desktop-btn');
     phoneLinks.forEach(link => {
         link.href = isMobile ? 'tel:8688252222' : 'tel:+528688252222';
         
@@ -26,10 +26,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Configurar correo electrónico
-    const emailLink = document.querySelector('.email-link');
-    if (emailLink) {
-        emailLink.href = 'mailto:oficina@andesa.mx?subject=Consulta%20desde%20sitio%20web&body=Hola,%20me%20interesa%20obtener%20más%20información...';
-    }
+    const emailLinks = document.querySelectorAll('.email-link, .email-desktop-btn');
+    emailLinks.forEach(link => {
+        link.href = 'mailto:oficina@andesa.mx?subject=Consulta%20a%20ANDESA&body=Hola,%20me%20interesa%20obtener%20más%20información%20sobre%20sus%20servicios.';
+        
+        link.addEventListener('click', function(e) {
+            if (!this.href.includes('mailto:')) {
+                e.preventDefault();
+                window.location.href = 'mailto:oficina@andesa.mx?subject=Consulta%20a%20ANDESA&body=Hola,%20me%20interesa%20obtener%20más%20información%20sobre%20sus%20servicios.';
+            }
+        });
+    });
     
     // Animación para el enlace de mapa
     const mapLink = document.getElementById('map-link');
@@ -47,6 +54,28 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Configurar botones de desktop
     if (!isMobile) {
+        const phoneDesktopBtn = document.querySelector('.phone-desktop-btn');
+        if (phoneDesktopBtn) {
+            phoneDesktopBtn.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+            
+            phoneDesktopBtn.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        }
+        
+        const emailDesktopBtn = document.querySelector('.email-desktop-btn');
+        if (emailDesktopBtn) {
+            emailDesktopBtn.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+            
+            emailDesktopBtn.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        }
+        
         const whatsappDesktopBtn = document.getElementById('whatsapp-desktop');
         if (whatsappDesktopBtn) {
             whatsappDesktopBtn.addEventListener('mouseenter', function() {
