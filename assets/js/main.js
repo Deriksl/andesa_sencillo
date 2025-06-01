@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     
     // Configurar WhatsApp
-    const whatsappLinks = document.querySelectorAll('.whatsapp-link, .whatsapp-float, .whatsapp-desktop-btn');
+    const whatsappLinks = document.querySelectorAll('.whatsapp-desktop-btn, .whatsapp-float');
     if (isMobile) {
         whatsappLinks.forEach(link => {
             link.href = 'whatsapp://send?phone=5218688947229';
@@ -38,65 +38,49 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Animación para el enlace de mapa
-    const mapLink = document.getElementById('map-link');
-    if (mapLink) {
-        mapLink.addEventListener('mouseenter', function() {
-            const icon = this.querySelector('.map-icon');
-            if (icon) icon.style.animation = 'map-pulse 1.5s infinite';
+    // Configurar botones de desktop
+    const phoneDesktopBtn = document.querySelector('.phone-desktop-btn');
+    if (phoneDesktopBtn) {
+        phoneDesktopBtn.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.1)';
         });
         
-        mapLink.addEventListener('mouseleave', function() {
-            const icon = this.querySelector('.map-icon');
-            if (icon) icon.style.animation = 'none';
+        phoneDesktopBtn.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
         });
     }
     
-    // Configurar botones de desktop
-    if (!isMobile) {
-        const phoneDesktopBtn = document.querySelector('.phone-desktop-btn');
-        if (phoneDesktopBtn) {
-            phoneDesktopBtn.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.1)';
-            });
-            
-            phoneDesktopBtn.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1)';
-            });
-        }
+    const emailDesktopBtn = document.querySelector('.email-desktop-btn');
+    if (emailDesktopBtn) {
+        emailDesktopBtn.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.1)';
+        });
         
-        const emailDesktopBtn = document.querySelector('.email-desktop-btn');
-        if (emailDesktopBtn) {
-            emailDesktopBtn.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.1)';
-            });
-            
-            emailDesktopBtn.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1)';
-            });
-        }
+        emailDesktopBtn.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    }
+    
+    const whatsappDesktopBtn = document.getElementById('whatsapp-desktop');
+    if (whatsappDesktopBtn) {
+        whatsappDesktopBtn.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.1) rotate(5deg)';
+        });
         
-        const whatsappDesktopBtn = document.getElementById('whatsapp-desktop');
-        if (whatsappDesktopBtn) {
-            whatsappDesktopBtn.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.1) rotate(5deg)';
-            });
-            
-            whatsappDesktopBtn.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1) rotate(0)';
-            });
-        }
+        whatsappDesktopBtn.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) rotate(0)';
+        });
+    }
+    
+    const mapDesktopBtn = document.querySelector('.map-desktop-btn');
+    if (mapDesktopBtn) {
+        mapDesktopBtn.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.1)';
+        });
         
-        const mapDesktopBtn = document.querySelector('.map-desktop-btn');
-        if (mapDesktopBtn) {
-            mapDesktopBtn.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.1)';
-            });
-            
-            mapDesktopBtn.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1)';
-            });
-        }
+        mapDesktopBtn.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
     }
     
     // Animación de carga de la tarjeta

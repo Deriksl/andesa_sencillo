@@ -8,6 +8,17 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos para colores en números (modificados para no afectar funcionalidad) */
+        .whatsapp-number {
+            color: #1ba24d !important;
+            font-weight: bold;
+        }
+        .office-number {
+            color: #0056b3 !important;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <div class="card">
@@ -45,38 +56,48 @@
         <footer class="card-footer">
             <div class="contact-info">
                 <div class="contact-column">
-                    <p class="highlight-phone"><strong>Oficina:</strong> 
-                        <a href="tel:8688252222" class="phone-link">868 825 22 22</a>
-                        <a href="tel:8688252222" class="phone-desktop-btn">
-                            <i class="phone-icon-white"></i>
-                        </a>
-                    </p>
-                    <p><strong>WhatsApp:</strong> 
-                        <a href="https://wa.me/5218688947229" class="whatsapp-link" id="whatsapp-link">
-                            <span class="whatsapp-icon"></span> 868 894 72 29
-                        </a>
-                        <a href="https://wa.me/5218688947229" class="whatsapp-desktop-btn" id="whatsapp-desktop">
-                            <i class="whatsapp-icon-white"></i>
-                        </a>
-                    </p>
+                    <div class="contact-item">
+                        <strong>Oficina:</strong>
+                        <div class="contact-value">
+                            <a href="tel:8688252222" class="phone-link office-number">868 825 22 22</a>
+                            <a href="tel:8688252222" class="phone-desktop-btn">
+                                <i class="phone-icon-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <strong>WhatsApp:</strong>
+                        <div class="contact-value">
+                            <a href="https://wa.me/5218688947229" class="whatsapp-number">868 894 72 29</a>
+                            <a href="https://wa.me/5218688947229" class="whatsapp-desktop-btn" id="whatsapp-desktop">
+                                <i class="whatsapp-icon-white"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="contact-column">
-                    <p><strong>Email:</strong> 
-                        <a href="mailto:oficina@andesa.mx?subject=Consulta%20a%20ANDESA&body=Hola,%20me%20interesa%20obtener%20más%20información%20sobre%20sus%20servicios." class="email-link">
-                            <span class="email-icon"></span> oficina@andesa.mx
-                        </a>
-                        <a href="mailto:oficina@andesa.mx?subject=Consulta%20a%20ANDESA&body=Hola,%20me%20interesa%20obtener%20más%20información%20sobre%20sus%20servicios." class="email-desktop-btn">
-                            <i class="email-icon-white"></i>
-                        </a>
-                    </p>
-                    <p class="highlight-address"><strong>Dirección:</strong> 
-                        <a href="https://maps.app.goo.gl/Wp5toRzDruPNk2xZ7" class="map-link" id="map-link" target="_blank">
-                            <span class="map-icon"></span> 1a y Matamoros #1311
-                        </a>
-                        <a href="https://maps.app.goo.gl/Wp5toRzDruPNk2xZ7" class="map-desktop-btn" target="_blank">
-                            <i class="map-icon-white"></i>
-                        </a>
-                    </p>
+                    <div class="contact-item">
+                        <strong>Email:</strong>
+                        <div class="contact-value">
+                            <a href="mailto:oficina@andesa.mx?subject=Consulta%20a%20ANDESA&body=Hola,%20me%20interesa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios." class="email-link">
+                                oficina@andesa.mx
+                            </a>
+                            <a href="mailto:oficina@andesa.mx?subject=Consulta%20a%20ANDESA&body=Hola,%20me%20interesa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios." class="email-desktop-btn">
+                                <i class="email-icon-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Dirección:</strong>
+                        <div class="contact-value">
+                            <a href="https://maps.app.goo.gl/Wp5toRzDruPNk2xZ7" class="map-link" id="map-link" target="_blank">
+                                1a y Matamoros #1311
+                            </a>
+                            <a href="https://maps.app.goo.gl/Wp5toRzDruPNk2xZ7" class="map-desktop-btn" target="_blank">
+                                <i class="map-icon-white"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>
