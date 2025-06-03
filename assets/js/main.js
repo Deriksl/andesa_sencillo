@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
     phoneLinks.forEach(link => {
         link.href = isMobile ? 'tel:8688252222' : 'tel:+528688252222';
         
-        // Efecto al hacer clic
         link.addEventListener('click', function() {
             if (isMobile) {
                 console.log('Iniciando llamada...');
@@ -28,12 +27,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Configurar correo electrónico
     const emailLinks = document.querySelectorAll('.email-link, .email-desktop-btn');
     emailLinks.forEach(link => {
-        link.href = 'mailto:oficina@andesa.mx?subject=Consulta%20a%20ANDESA&body=Hola,%20me%20interesa%20obtener%20más%20información%20sobre%20sus%20servicios.';
+        link.href = 'mailto:oficina@andesa.mx?subject=Consulta%20a%20ANDESA&body=Hola,%20me%20interesa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios.';
         
         link.addEventListener('click', function(e) {
             if (!this.href.includes('mailto:')) {
                 e.preventDefault();
-                window.location.href = 'mailto:oficina@andesa.mx?subject=Consulta%20a%20ANDESA&body=Hola,%20me%20interesa%20obtener%20más%20información%20sobre%20sus%20servicios.';
+                window.location.href = 'mailto:oficina@andesa.mx?subject=Consulta%20a%20ANDESA&body=Hola,%20me%20interesa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios.';
             }
         });
     });
@@ -120,4 +119,31 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'scale(1.1)';
         });
     }
+    
+    // Activar animaciones pasivas más fuertes
+    const buttons = document.querySelectorAll('.phone-desktop-btn, .email-desktop-btn, .whatsapp-desktop-btn, .map-desktop-btn');
+    
+    function triggerStrongAnimation(button) {
+        button.style.animation = 'none';
+        void button.offsetWidth;
+        button.style.animation = 'dramatic-pulse 1s, color-pulse 1.5s';
+        
+        // Resplandor más intenso
+        const glow = document.createElement('div');
+        glow.className = 'temp-glow';
+        button.appendChild(glow);
+        
+        setTimeout(() => {
+            glow.remove();
+        }, 1000);
+    }
+    
+    // Activar animaciones cada 5 segundos
+    setInterval(() => {
+        buttons.forEach((button, index) => {
+            setTimeout(() => {
+                triggerStrongAnimation(button);
+            }, index * 800);
+        });
+    }, 5000);
 });
