@@ -2,27 +2,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Detectar dispositivo
     const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     
-    // Configurar WhatsApp
+    // Configurar WhatsApp con el nuevo número
     const whatsappLinks = document.querySelectorAll('.whatsapp-desktop-btn, .whatsapp-float');
     if (isMobile) {
         whatsappLinks.forEach(link => {
-            link.href = 'whatsapp://send?phone=5218688947229';
+            link.href = 'whatsapp://send?phone=5218681323331';
         });
     }
-    
-    // Configurar teléfono
-    const phoneLinks = document.querySelectorAll('.phone-link, .phone-desktop-btn');
-    phoneLinks.forEach(link => {
-        link.href = isMobile ? 'tel:8688252222' : 'tel:+528688252222';
-        
-        link.addEventListener('click', function() {
-            if (isMobile) {
-                console.log('Iniciando llamada...');
-            } else {
-                console.log('Número mostrado para desktop');
-            }
-        });
-    });
     
     // Configurar correo electrónico
     const emailLinks = document.querySelectorAll('.email-link, .email-desktop-btn');
@@ -38,17 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Configurar botones de desktop
-    const phoneDesktopBtn = document.querySelector('.phone-desktop-btn');
-    if (phoneDesktopBtn) {
-        phoneDesktopBtn.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.1)';
-        });
-        
-        phoneDesktopBtn.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-        });
-    }
-    
     const emailDesktopBtn = document.querySelector('.email-desktop-btn');
     if (emailDesktopBtn) {
         emailDesktopBtn.addEventListener('mouseenter', function() {
@@ -71,17 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    const mapDesktopBtn = document.querySelector('.map-desktop-btn');
-    if (mapDesktopBtn) {
-        mapDesktopBtn.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.1)';
-        });
-        
-        mapDesktopBtn.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-        });
-    }
-    
     // Animación de carga de la tarjeta
     const card = document.querySelector('.card');
     if (card) {
@@ -95,9 +59,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     }
     
-    // Efectos para el botón flotante de WhatsApp (solo móvil)
+    // Efectos para el botón flotante de WhatsApp
     const whatsappFloat = document.getElementById('whatsapp-float');
-    if (whatsappFloat && isMobile) {
+    if (whatsappFloat) {
         whatsappFloat.addEventListener('mouseenter', function() {
             this.style.animation = 'none';
             void this.offsetWidth;
@@ -111,24 +75,25 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 100);
         });
         
-        whatsappFloat.addEventListener('touchstart', function() {
-            this.style.transform = 'scale(0.9)';
-        });
-        
-        whatsappFloat.addEventListener('touchend', function() {
-            this.style.transform = 'scale(1.1)';
-        });
+        if (isMobile) {
+            whatsappFloat.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.9)';
+            });
+            
+            whatsappFloat.addEventListener('touchend', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+        }
     }
     
-    // Activar animaciones pasivas más fuertes
-    const buttons = document.querySelectorAll('.phone-desktop-btn, .email-desktop-btn, .whatsapp-desktop-btn, .map-desktop-btn');
+    // Activar animaciones pasivas
+    const buttons = document.querySelectorAll('.email-desktop-btn, .whatsapp-desktop-btn');
     
     function triggerStrongAnimation(button) {
         button.style.animation = 'none';
         void button.offsetWidth;
         button.style.animation = 'dramatic-pulse 1s, color-pulse 1.5s';
         
-        // Resplandor más intenso
         const glow = document.createElement('div');
         glow.className = 'temp-glow';
         button.appendChild(glow);
@@ -138,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1000);
     }
     
-    // Activar animaciones cada 5 segundos
     setInterval(() => {
         buttons.forEach((button, index) => {
             setTimeout(() => {
